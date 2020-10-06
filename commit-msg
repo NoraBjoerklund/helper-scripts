@@ -1,6 +1,10 @@
 #!/bin/bash
 # This is a derivative work of https://gist.github.com/agnivade
-#Oncorporating parts of: http://chris.beams.io/posts/git-commit/#seven-rules
+# This script checks and fails if:
+#  * Title is longer than 50 chars.
+#  * If there is no blank line between title and the rest of the text,
+#    if there is more than just a title.
+#  * If the rest of the text exceed 72 chars.
 
 comments=`awk '/^#/{a++}END{print a}' $1`
 file_lines=`wc -l < $1 | xargs`
